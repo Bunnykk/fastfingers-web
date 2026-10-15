@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Кто быстрее?</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Главный экран -->
+<div id="menu" class="screen active">
+  <h1>Кто быстрее?</h1>
+  <button onclick="showMaster()">Я мастер</button>
+  <button onclick="showPlayer()">Я игрок</button>
+</div>
+
+<!-- Экран мастера -->
+<div id="master" class="screen">
+  <h2>Мастер</h2>
+  <label>Код комнаты:
+    <input id="roomCode" type="text" value="1" maxlength="6">
+  </label>
+  <div id="masterStatus">Не подключён</div>
+  <div id="playerList"></div>
+  <button id="resetBtn" onclick="masterReset()" disabled>Сброс / Начать раунд</button>
+  <button class="back" onclick="backToMenu()">Выход</button>
+</div>
+
+<!-- Экран игрока -->
+<div id="player" class="screen">
+  <h2>Игрок</h2>
+  <label>Код комнаты:
+    <input id="playerRoom" type="text" value="1" maxlength="6">
+  </label>
+  <label>Ваш ник:
+    <input id="nick" type="text" maxlength="20">
+  </label>
+  <button id="connectBtn" onclick="playerConnect()">Подключиться</button>
+  <div id="playerStatus">Введите ник и подключитесь</div>
+  <button id="bigButton" class="big-circle" disabled onclick="playerPress()">Ожидание</button>
+  <button class="back" onclick="backToMenu()">Выход</button>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
